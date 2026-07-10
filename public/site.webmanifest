@@ -1,0 +1,16 @@
+{
+  "name": "Tinderfessions",
+  "short_name": "Tinderfessions",
+  "description": "The stories your group chat couldn't hold.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f6f0e7",
+  "theme_color": "#f6f0e7",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
