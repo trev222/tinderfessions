@@ -64,3 +64,19 @@ test("public contact flows use the temporary editorial inbox", async () => {
   assert.match(html, /mail@dreolo\.com/);
   assert.doesNotMatch(html, /(?:submissions|takedown)@tinderfessions\.com/);
 });
+
+test("interactive discovery and follow-up surfaces are exported", async () => {
+  const [home, story, saved, privacy] = await Promise.all([
+    readFile(new URL("index.html", outDir), "utf8"),
+    readFile(new URL("confessions/he-brought-a-powerpoint/index.html", outDir), "utf8"),
+    readFile(new URL("saved/index.html", outDir), "utf8"),
+    readFile(new URL("privacy/index.html", outDir), "utf8"),
+  ]);
+
+  assert.match(home, /Introducing the Jury/);
+  assert.match(home, /Confession roulette/);
+  assert.match(story, /Was the PowerPoint an instant dealbreaker/);
+  assert.match(story, /Share story card/);
+  assert.match(saved, /Bookmarks live only in this browser/);
+  assert.match(privacy, /browser’s local storage/);
+});

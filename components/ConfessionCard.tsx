@@ -6,7 +6,10 @@ export function ConfessionCard({ confession }: { confession: Confession }) {
     <article className={`story-card accent-${confession.accent}`}>
       <div className="story-card-top">
         <span className="story-number">#{confession.number}</span>
-        <span className="pill">{confession.category}</span>
+        <span className="story-card-pills">
+          {confession.followUp && <span className="pill update-pill">Update</span>}
+          <span className="pill">{confession.category}</span>
+        </span>
       </div>
       <h3><Link href={`/confessions/${confession.slug}/`}>{confession.title}</Link></h3>
       <p>{confession.deck}</p>

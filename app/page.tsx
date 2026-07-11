@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ConfessionCard } from "@/components/ConfessionCard";
+import { DailyDrop } from "@/components/DailyDrop";
+import { RouletteButton } from "@/components/RouletteButton";
 import { confessions } from "@/lib/content";
 
 export const metadata: Metadata = {
@@ -60,6 +62,34 @@ export default function Home() {
           <span>GOOD STORIES ONLY</span>
         </div>
       </div>
+
+      <section className="section-pad jury-preview-section">
+        <div className="site-shell jury-preview-grid">
+          <div className="jury-preview-copy">
+            <span className="kicker">Introducing the Jury</span>
+            <h2>You read the evidence. You make the call.</h2>
+            <p>
+              Every confession now ends with a verdict. Vote privately, save the stories
+              worth keeping, and come back for the follow-up chapter.
+            </p>
+            <div className="hero-actions">
+              <Link className="button" href={`/confessions/${featured.slug}/#jury-${featured.slug}`}>Try the Jury</Link>
+              <RouletteButton />
+            </div>
+          </div>
+          <div className="jury-preview-card">
+            <span>CASE #{featured.number}</span>
+            <blockquote>{featured.verdict.question}</blockquote>
+            <ol>
+              {featured.verdict.options.map((option, index) => (
+                <li key={option}><b>0{index + 1}</b>{option}</li>
+              ))}
+            </ol>
+            <Link href={`/confessions/${featured.slug}/`}>Open the case file ↗</Link>
+          </div>
+          <DailyDrop />
+        </div>
+      </section>
 
       <section className="section-pad plot-section">
         <div className="site-shell">

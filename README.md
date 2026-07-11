@@ -7,6 +7,19 @@ The current project is not affiliated with Tinder LLC, Match Group, or the
 historical `@tinderfessions` social accounts. Launch stories are visibly marked
 as original editorial composites rather than reader submissions.
 
+## Interactive features
+
+- The Jury saves one private verdict per story on the reader's device.
+- Bookmarks create a device-local saved-story stack with no account required.
+- Confession Roulette opens a random story.
+- Daily Drop rotates a featured confession each day.
+- Story pages can generate a 1200×630 share card in the browser.
+- Selected stories contain clearly labeled follow-up chapters.
+
+Verdicts and bookmarks intentionally use browser storage. They are not global
+community totals and do not sync between devices. A backend can replace this
+storage layer later without changing the editorial story model.
+
 ## Run locally
 
 Requires Node.js 22 or newer.

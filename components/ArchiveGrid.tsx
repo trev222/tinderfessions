@@ -1,7 +1,9 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 import { ConfessionCard } from "@/components/ConfessionCard";
+import { RouletteButton } from "@/components/RouletteButton";
 import { categories, confessions } from "@/lib/content";
 
 export function ArchiveGrid() {
@@ -12,6 +14,10 @@ export function ArchiveGrid() {
 
   return (
     <div>
+      <div className="archive-tools">
+        <RouletteButton className="button button-small" />
+        <Link className="button button-small button-ghost" href="/saved/">Open saved stories</Link>
+      </div>
       <div className="filter-row" aria-label="Filter confessions by category">
         {categories.map((category) => (
           <button

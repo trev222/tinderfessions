@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ConfessionCard } from "@/components/ConfessionCard";
+import { StoryActions } from "@/components/StoryActions";
 import { confessions, getConfession, getRelatedConfessions } from "@/lib/content";
 
 export const dynamicParams = false;
@@ -79,12 +80,14 @@ export default async function ConfessionPage({ params }: { params: Promise<{ slu
               reader submission or a post from the historical social account.
             </p>
           </div>
-          <div className="story-share">
-            <span>Know someone who needs this plot twist?</span>
-            <a href={`mailto:?subject=${encodeURIComponent(confession.title)}&body=${encodeURIComponent(`Read this on Tinderfessions: https://www.tinderfessions.com/confessions/${confession.slug}/`)}`}>
-              Send it to the group chat ↗
-            </a>
-          </div>
+          {confession.followUp && (
+            <section className="follow-up-chapter">
+              <span className="follow-up-label">WHAT HAPPENED NEXT</span>
+              <h2>{confession.followUp.title}</h2>
+              {confession.followUp.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+            </section>
+          )}
+          <StoryActions confession={confession} />
         </div>
         <script dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} type="application/ld+json" />
       </article>

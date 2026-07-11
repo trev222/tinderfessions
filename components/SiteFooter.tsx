@@ -17,6 +17,7 @@ export function SiteFooter() {
             <strong>Read</strong>
             <Link href="/confessions/">Confessions</Link>
             <Link href="/collections/">Collections</Link>
+            <Link href="/saved/">Saved stories</Link>
             <Link href="/resources/">Resources</Link>
           </div>
           <div>

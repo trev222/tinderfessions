@@ -24,20 +24,27 @@ test("server-renders the finished homepage", async () => {
   assert.match(html, /The stories your/);
   assert.match(html, /group chat/);
   assert.match(html, /Fresh start, same irresistible premise/);
+  assert.match(html, /Introducing the Jury/);
+  assert.match(html, /Today’s drop/);
   assert.doesNotMatch(html, /codex-preview|react-loading-skeleton|Your site is taking shape/i);
 });
 
-test("server-renders archive and story pages", async () => {
-  const [archive, story] = await Promise.all([
+test("server-renders archive, story, and saved pages", async () => {
+  const [archive, story, saved] = await Promise.all([
     render("/confessions/"),
     render("/confessions/he-brought-a-powerpoint/"),
+    render("/saved/"),
   ]);
   assert.equal(archive.status, 200);
   assert.equal(story.status, 200);
+  assert.equal(saved.status, 200);
   assert.match(await archive.text(), /Every match leaves a story/);
   const storyHtml = await story.text();
   assert.match(storyHtml, /He brought a PowerPoint/);
   assert.match(storyHtml, /Editorial composite/);
+  assert.match(storyHtml, /Was the PowerPoint an instant dealbreaker/);
+  assert.match(storyHtml, /The post-date survey arrived/);
+  assert.match(await saved.text(), /The stories you kept/);
 });
 
 test("contains GitHub Pages publishing essentials", async () => {
@@ -51,6 +58,7 @@ test("contains GitHub Pages publishing essentials", async () => {
   assert.equal(cname.trim(), "www.tinderfessions.com");
   assert.match(robots, /Sitemap: https:\/\/www\.tinderfessions\.com\/sitemap\.xml/);
   assert.match(sitemap, /he-brought-a-powerpoint/);
+  assert.match(sitemap, /https:\/\/www\.tinderfessions\.com\/saved\//);
   assert.match(workflow, /deploy-pages@v4/);
   assert.match(packageJson, /"build:pages": "next build"/);
   await assert.rejects(access(new URL("app/_sites-preview/SkeletonPreview.tsx", root)));
