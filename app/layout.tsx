@@ -1,9 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
+import { parentBrandName, parentBrandUrl, siteUrl } from "@/lib/site";
 import "./globals.css";
-
-const siteUrl = "https://www.tinderfessions.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -16,7 +15,7 @@ export const metadata: Metadata = {
   applicationName: "Tinderfessions",
   category: "entertainment",
   creator: "Tinderfessions editorial",
-  publisher: "Tinderfessions",
+  publisher: parentBrandName,
   manifest: "/site.webmanifest",
   icons: {
     icon: "/favicon.svg",
@@ -62,6 +61,11 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     name: "Tinderfessions",
     url: siteUrl,
     description: "An independent editorial home for anonymous dating stories.",
+    publisher: {
+      "@type": "Organization",
+      name: parentBrandName,
+      url: parentBrandUrl,
+    },
     inLanguage: "en",
   };
 

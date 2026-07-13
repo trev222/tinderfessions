@@ -4,6 +4,7 @@ import { ConfessionCard } from "@/components/ConfessionCard";
 import { DailyDrop } from "@/components/DailyDrop";
 import { RouletteButton } from "@/components/RouletteButton";
 import { confessions } from "@/lib/content";
+import { parentBrandName, parentBrandUrl } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Anonymous dating stories, plot twists & first-date chaos",
@@ -88,6 +89,23 @@ export default function Home() {
             <Link href={`/confessions/${featured.slug}/`}>Open the case file ↗</Link>
           </div>
           <DailyDrop />
+        </div>
+      </section>
+
+      <section className="swiperino-bridge">
+        <div className="site-shell swiperino-bridge-inner">
+          <div>
+            <span className="kicker">From confession to connection</span>
+            <h2>Tinderfessions is becoming part of {parentBrandName}.</h2>
+          </div>
+          <p>
+            We are keeping the story archive alive here while building the next dating
+            project at {parentBrandName}: better prompts, better matches, and fewer
+            dates that deserve an emergency group chat.
+          </p>
+          <a className="button button-dark" href={parentBrandUrl} rel="noopener noreferrer" target="_blank">
+            Visit {parentBrandName}
+          </a>
         </div>
       </section>
 

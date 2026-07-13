@@ -759,6 +759,17 @@ h3 {
   margin-top: 0.6rem;
 }
 
+.footer-parent {
+  color: #efe8e1;
+  font-size: 0.92rem;
+  max-width: 560px;
+}
+
+.footer-parent a {
+  color: var(--lime);
+  font-weight: 800;
+}
+
 .fine-print {
   color: #c9c1ba;
   font-size: 0.78rem;
@@ -768,7 +779,7 @@ h3 {
 .footer-links {
   display: grid;
   gap: 2rem;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
 }
 
 .footer-links > div {
@@ -1630,6 +1641,32 @@ h3 {
   text-transform: uppercase;
 }
 
+.swiperino-bridge {
+  background: var(--lime);
+  border-bottom: var(--border);
+  border-top: var(--border);
+}
+
+.swiperino-bridge-inner {
+  align-items: center;
+  display: grid;
+  gap: clamp(1.5rem, 4vw, 3rem);
+  grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr) auto;
+  padding-block: clamp(2.4rem, 5vw, 4rem);
+}
+
+.swiperino-bridge h2 {
+  font-size: clamp(2.2rem, 4vw, 4.2rem);
+  margin: 0;
+  max-width: 780px;
+}
+
+.swiperino-bridge p {
+  font-size: 1.02rem;
+  margin: 0;
+  max-width: 560px;
+}
+
 .daily-drop {
   border: 2px solid var(--white);
   color: var(--ink);
@@ -1947,6 +1984,7 @@ h3 {
   .archive-panel,
   .resource-preview-grid,
   .submit-layout,
+  .swiperino-bridge-inner,
   .footer-grid,
   .jury-preview-grid {
     grid-template-columns: 1fr;
@@ -1995,6 +2033,10 @@ h3 {
 
   .footer-grid {
     gap: 3rem;
+  }
+
+  .footer-links {
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .archive-hero {

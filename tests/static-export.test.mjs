@@ -74,6 +74,8 @@ test("interactive discovery and follow-up surfaces are exported", async () => {
   ]);
 
   assert.match(home, /Introducing the Jury/);
+  assert.match(home, /https:\/\/swiperino\.com/);
+  assert.match(home, /Tinderfessions is becoming part of[\s\S]*Swiperino/);
   assert.match(home, /Confession roulette/);
   assert.match(story, /Was the PowerPoint an instant dealbreaker/);
   assert.match(story, /Share story card/);

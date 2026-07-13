@@ -24,6 +24,8 @@ test("server-renders the finished homepage", async () => {
   assert.match(html, /The stories your/);
   assert.match(html, /group chat/);
   assert.match(html, /Fresh start, same irresistible premise/);
+  assert.match(html, /Tinderfessions is becoming part of[\s\S]*Swiperino/);
+  assert.match(html, /https:\/\/swiperino\.com/);
   assert.match(html, /Introducing the Jury/);
   assert.match(html, /Today’s drop/);
   assert.doesNotMatch(html, /codex-preview|react-loading-skeleton|Your site is taking shape/i);
