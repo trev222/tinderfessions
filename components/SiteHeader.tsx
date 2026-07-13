@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { parentBrandName, parentBrandUrl } from "@/lib/site";
+import { promotedBrandName, promotedBrandUrl } from "@/lib/site";
 
 const navigation = [
   { href: "/confessions/", label: "Confessions" },
@@ -22,8 +22,8 @@ export function SiteHeader() {
           {navigation.map((item) => (
             <Link href={item.href} key={item.href}>{item.label}</Link>
           ))}
-          <a href={parentBrandUrl} rel="noopener noreferrer" target="_blank">
-            {parentBrandName}
+          <a href={promotedBrandUrl} rel="noopener" target="_blank">
+            Try {promotedBrandName} ↗
           </a>
           <Link className="button button-small" href="/submit/">Tell us everything</Link>
         </nav>
@@ -34,8 +34,8 @@ export function SiteHeader() {
             {navigation.map((item) => (
               <Link href={item.href} key={item.href}>{item.label}</Link>
             ))}
-            <a href={parentBrandUrl} rel="noopener noreferrer" target="_blank">
-              Visit {parentBrandName}
+            <a href={promotedBrandUrl} rel="noopener" target="_blank">
+              Try {promotedBrandName} ↗
             </a>
             <Link href="/submit/">Submit a story</Link>
           </nav>

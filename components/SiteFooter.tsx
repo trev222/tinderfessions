@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { parentBrandName, parentBrandUrl } from "@/lib/site";
+import { promotedBrandName, promotedBrandUrl } from "@/lib/site";
 
 export function SiteFooter() {
   return (
@@ -9,8 +9,8 @@ export function SiteFooter() {
           <Link className="footer-wordmark" href="/">tinderfessions<span>.</span></Link>
           <p className="footer-tagline">The stories your group chat couldn’t hold.</p>
           <p className="footer-parent">
-            Part of <a href={parentBrandUrl} rel="noopener noreferrer" target="_blank">{parentBrandName}</a>,
-            a dating app project for better matches and better stories.
+            Want better matches and better stories? Try{" "}
+            <a href={promotedBrandUrl} rel="noopener" target="_blank">{promotedBrandName}</a>.
           </p>
           <p className="fine-print">
             Independently operated. Not affiliated with, endorsed by, or sponsored by
@@ -33,8 +33,8 @@ export function SiteFooter() {
           </div>
           <div>
             <strong>Next</strong>
-            <a href={parentBrandUrl} rel="noopener noreferrer" target="_blank">
-              Visit {parentBrandName}
+            <a href={promotedBrandUrl} rel="noopener" target="_blank">
+              Try {promotedBrandName} ↗
             </a>
           </div>
           <div>
